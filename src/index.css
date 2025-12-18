@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+body{
+  background-color: white;
+}
+
+.primeBg{
+  background-color: rgb(26,104,91);
+}
+
+.primeTxt {
+  color: rgb(26,104,91);
+}
+
+.scondBg{
+  background-color: rgb(255,172,0);
+  
+}
+
+.scondTxt{
+  color: rgb(255,172,0);
+  
+}
+
+.lightBg{
+  background-color: rgb(242,233,218) ;
+}
+
+.lightTxt{
+  color: rgb(121, 121, 126);
+}
