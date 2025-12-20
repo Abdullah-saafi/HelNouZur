@@ -47,7 +47,7 @@ const FoundationsEve = () => {
 
       <div className="div md:grid grid-cols-3 gap-10 md:p-10 bg-white">
         {cards.map((item, index) => (
-          <div key={index} className="card flex flex-col shadow-md rounded-lg p-6 md:p-10 hover:shadow-2xl hover:-translate-y-1 transition transform duration-300">
+          <div key={index} className="card flex flex-col rounded-lg boxShadow p-6">
             <img src={item.img} alt={item.title} className="card-img sm:h-70 w-auto" />
 
             <h2 className="text-xl md:text-2xl font-bold py-6 hover:text-[rgb(255,172,0)] ransform duration-300"><a href={item.link} target="_blank" rel="noreferrer">{item.title}</a></h2>

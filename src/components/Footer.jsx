@@ -21,12 +21,12 @@ const Footer = () => {
   ];
 
   const gallery = [
-    { img: "/public/imgs/galleryImg1.jpg" },
-    { img: "/public/imgs/galleryImg2.jpg" },
-    { img: "/public/imgs/galleryImg3.jpg" },
-    { img: "/public/imgs/galleryImg4.jpg" },
-    { img: "/public/imgs/galleryImg5.jpg" },
-    { img: "/public/imgs/galleryImg6.jpg" },
+    { img: "/imgs/galleryImg1.jpg" },
+    { img: "/imgs/galleryImg2.jpg" },
+    { img: "/imgs/galleryImg3.jpg" },
+    { img: "/imgs/galleryImg4.jpg" },
+    { img: "/imgs/galleryImg5.jpg" },
+    { img: "/imgs/galleryImg6.jpg" },
 
 
   ]

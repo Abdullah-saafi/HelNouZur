@@ -54,7 +54,7 @@ const Navbar = () => {
             Emergency Help
           </NavLink>
           <NavLink
-            to="/login"
+            to="/login-page"
             className="bg-black text-white px-4 py-2 rounded-full font-bold hover:scale-105 transition duration-300"
           >
             Login
@@ -105,7 +105,7 @@ const Navbar = () => {
               </div>
               <div className="btn">
                 <NavLink
-                  to="/login"
+                  to="/login-page"
                   onClick={() => setSideBar(false)}
                   className="bg-black text-white px-4 py-2 rounded-full font-bold hover:scale-105 transition duration-300"
                 >

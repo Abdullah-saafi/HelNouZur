@@ -51,7 +51,7 @@ const WhatCanDo = () => {
   return (
     <div className="Main lg:flex pt-10 p-4 md:p-20 lg:p-40 gap-6 bg-white">
       <div className="bg-[rgb(242,233,218)] px-10 py-20 my-10 md:my-0">
-        <h1 className="text-5xl font-bold"  >What you can Do fot those Who Needed.</h1>
+        <h1 className="text-5xl font-bold"  >What you can Do for those Who Needed.</h1>
         <p className="lightTxt my-10 text-xl">You can make smiles,Hope and a bright FUture to those who needed.</p>
       </div>
       <div className="cards md:grid grid-cols-3 gap-6">

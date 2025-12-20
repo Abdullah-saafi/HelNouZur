@@ -65,11 +65,11 @@ const ContactUs = () => {
               placeholder="Your message..."
             />
           </div>
-          <div className="btn ">
+          <div className="btn w-full primeBg cursor-pointer hover:scale-105 transition hover:translate-x-1 duration-300 text-white font-bold text-sm md:text-lg rounded-3xl p-3 md:p-4 flex items-center justify-center gap-2 disabled:opacity-60 ">
             <button>Submit</button>
           </div>
         </motion.div>
-      </div>
+      </div >
       <Quote scollTxt={false} />
 
     </div >
