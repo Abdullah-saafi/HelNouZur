@@ -7,7 +7,7 @@ const ScondQuote = () => {
       <p className="lightTxt md:text-xl">You cannot reach everyone who needs help.
         Yet reaching one soul with compassion matters deeply.
         That moment can reshape a life.</p>
-      <NavLink to="/need-help">
+      <NavLink to="/help-others">
         <button className="scondBg font-bold my-10 py-3 px-8 rounded-3xl  mb-8 text-xl hover:scale-110 transition duration-300 cursor-pointer">
           <p>Start Helps</p>
         </button>

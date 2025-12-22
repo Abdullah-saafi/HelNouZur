@@ -48,13 +48,13 @@ const Navbar = () => {
 
         <div className="hidden md:flex gap-4 items-center">
           <NavLink
-            to="/emergencyhelp"
+            to="/create-post"
             className="text-red-600  font-bold px-3 py-1 rounded-full border-2 border-red-500 hover:bg-red-600 hover:text-white hover:scale-105 transition duration-300"
           >
             Emergency Help
           </NavLink>
           <NavLink
-            to="/login-page"
+            to="default-login"
             className="bg-black text-white px-4 py-2 rounded-full font-bold hover:scale-105 transition duration-300"
           >
             Login
@@ -105,7 +105,7 @@ const Navbar = () => {
               </div>
               <div className="btn">
                 <NavLink
-                  to="/login-page"
+                  to="default-login"
                   onClick={() => setSideBar(false)}
                   className="bg-black text-white px-4 py-2 rounded-full font-bold hover:scale-105 transition duration-300"
                 >

@@ -67,7 +67,7 @@ const Header = () => {
           <p className="sm:text-2xl text-gray-700 mb-8 leading-relaxed">
             {current.description}
           </p>
-          <NavLink to="/need-help">
+          <NavLink to="/help-others">
             <button className="scondBg font-bold py-3 px-8 rounded-3xl  mb-8 text-xl hover:scale-110 transition duration-300 cursor-pointer">
               {current.btnText}
             </button>

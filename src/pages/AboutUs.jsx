@@ -12,25 +12,25 @@ const AboutUs = () => {
         if (prev < headings.length - 1) {
           return prev + 1;
         } else {
-          clearInterval(interval); // stop interval
+          clearInterval(interval);
           return prev;
         }
       });
-    }, 2000);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
 
   const itemVariants = {
     hidden: { opacity: 0, x: 100 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.5, } },
-    exit: { opacity: 0, x: -100, transition: { duration: 0.5 } },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.1, } },
+    exit: { opacity: 0, x: -100, transition: { duration: 0.1 } },
   };
 
   return (
     <div className="main ">
       <div className="header bg-[url('/imgs/headerBg.jpg')] bg-center h-40 md:h-80  flex flex-col justify-center items-center">
-        <AnimatePresence mode="wait">
+        <AnimatePresence >
           <motion.h1
             key={current}
             variants={itemVariants}
