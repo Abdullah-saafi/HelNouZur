@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 
 const CreatePost = () => {
 
@@ -92,12 +93,14 @@ const CreatePost = () => {
               </label>
             </div>
             <div className="submitBtn pt-4 flex">
-              <button
-                type="submit"
-                className="w-50 primeBg cursor-pointer hover:scale-105 transition hover:translate-x-1 duration-300 text-white font-bold text-sm md:text-lg rounded-3xl p-3 md:p-4 ml-auto md:ml-0 "
-              >
-                Post
-              </button>
+              <NavLink to={"/home"}>
+                <button
+                  type="submit"
+                  className="w-50 primeBg cursor-pointer hover:scale-105 transition hover:translate-x-1 duration-300 text-white font-bold text-sm md:text-lg rounded-3xl p-3 md:p-4 ml-auto md:ml-0 "
+                >
+                  Post
+                </button>
+              </NavLink>
             </div>
           </form>
         </div>
