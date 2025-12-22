@@ -93,7 +93,7 @@ const CreatePost = () => {
               </label>
             </div>
             <div className="submitBtn pt-4 flex">
-              <NavLink to={"/home"}>
+              <NavLink to={"/"}>
                 <button
                   type="submit"
                   className="w-50 primeBg cursor-pointer hover:scale-105 transition hover:translate-x-1 duration-300 text-white font-bold text-sm md:text-lg rounded-3xl p-3 md:p-4 ml-auto md:ml-0 "
