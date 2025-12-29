@@ -1,13 +1,11 @@
-import LayoutNavFoot from "./components/LayoutHeadFoot.jsx";
+import { FormDataProvider } from "./components/FormDataContest";
 import AppRoutes from "./routes/AppRoutes";
-
-
 
 function App() {
   return (
-    <LayoutNavFoot>
+    <FormDataProvider>
       <AppRoutes />
-    </LayoutNavFoot>
+    </FormDataProvider>
   );
 }
 

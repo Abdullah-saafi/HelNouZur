@@ -1,12 +1,19 @@
 import posts from "../data/postsForHelp";
-
+import { UseFormData } from "../components/FormDataContest";
 
 const HelpOthers = () => {
+  const { formData } = UseFormData();
+
+  console.log(formData);
+
   return (
     <div className="main flex justify-center  ">
       <div className="posts  w-[90%] md:w-[50%] p-4 md:p-10">
         {posts.map((user, i) => (
-          <div className="post  p-4 md:p-10 border border-gray-300 rounded my-4" key={i} >
+          <div
+            className="post  p-4 md:p-10 border border-gray-300 rounded my-4"
+            key={i}
+          >
             <div className="userInfo flex items-center ">
               <div className="userImg overflow-hidden border border-amber-50 h-10 w-10  md:h-15 md:w-15 rounded-full bg-white flex justify-center items-center text-xl md:text-3xl">
                 <img src={user.userimg} alt="" />
@@ -30,14 +37,18 @@ const HelpOthers = () => {
               </div>
             </div>
             <div className="react flex gap-4 ">
-              <button className="primeBg text-white px-1 py-1 font-bold rounded-full boxShadow cursor-pointer text-[10px] md:text-lg md:px-3 md:py-2">{user.helpbtn}</button>
-              <button className="bg-red-700 text-white px-1 py-1  font-bold rounded-full boxShadow cursor-pointer text-[10px] md:text-lg md:px-3 md:py-2">{user.reportbtn} </button>
+              <button className="primeBg text-white px-1 py-1 font-bold rounded-full boxShadow cursor-pointer text-[10px] md:text-lg md:px-3 md:py-2">
+                {user.helpbtn}
+              </button>
+              <button className="bg-red-700 text-white px-1 py-1  font-bold rounded-full boxShadow cursor-pointer text-[10px] md:text-lg md:px-3 md:py-2">
+                {user.reportbtn}{" "}
+              </button>
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default HelpOthers;

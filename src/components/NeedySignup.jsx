@@ -1,10 +1,20 @@
 import { FaArrowRight } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-
-
+import { NavLink, useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { UseFormData } from "./FormDataContest";
 const NeedySignup = () => {
+  const { setFormData } = UseFormData();
+  const navigate = useNavigate();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-
+  const onSubmit = (data) => {
+    navigate("/create-post");
+    setFormData(data);
+  };
 
   return (
     <div className="main">
@@ -19,25 +29,38 @@ const NeedySignup = () => {
                 <img src="/imgs/logo.png" alt="" className="w-50 md:w-50" />
               </div>
               <div className="heading text-center mt-6 md:mt-10">
-                <h4 className="text-sm md:text-2xl font-bold primeTxt">Take a breath. You’ve found a place that listens.
+                <h4 className="text-sm md:text-2xl font-bold primeTxt">
+                  Take a breath. You’ve found a place that listens.
                 </h4>
-                <h1 className="text-md md:text-5xl mt-2  font-extrabold scondTxt"> HelNurZor a community.</h1>
+                <h1 className="text-md md:text-5xl mt-2  font-extrabold scondTxt">
+                  {" "}
+                  HelNurZor a community.
+                </h1>
               </div>
             </div>
             <div className="NeedyLoginForm flex flex-col  gap-2 md:gap-4 mt-2 px-5 md:px-10">
-              <form className="space-y-4">
+              <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="fName" className="loginLable">
                       First Name
                     </label>
                     <input
-                      type="text"
-                      name="fName"
-                      id="fName"
-                      placeholder="First Name"
+                      {...register("FirstName", {
+                        required: "'First Name is Required'",
+                        minLength: {
+                          value: 3,
+                          message: "'Minimum Length must be 3'",
+                        },
+                        pattern: /^[A-Za-z]+$/i,
+                      })}
                       className={`loginInput`}
                     />
+                    {errors.FirstName && (
+                      <p className="text-red-500 my-2 text-sm">
+                        {errors.FirstName.message}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -45,12 +68,21 @@ const NeedySignup = () => {
                       Last Name
                     </label>
                     <input
-                      type="text"
-                      name="sName"
-                      id="sName"
-                      placeholder="Last Name"
+                      {...register("LastName", {
+                        required: "'Last Name is Required'",
+                        minLength: {
+                          value: 3,
+                          message: "'Minimum Length must be 3'",
+                        },
+                        pattern: /^[A-Za-z]+$/i,
+                      })}
                       className={`loginInput `}
                     />
+                    {errors.LastName && (
+                      <p className="text-red-500 my-2 text-sm">
+                        {errors.LastName.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -61,13 +93,25 @@ const NeedySignup = () => {
                     </label>
                     <input
                       type="number"
-                      name="age"
-                      id="age"
-                      placeholder="Ex: 27"
-                      min="1"
-                      max="120"
+                      {...register("Age", {
+                        required: "'Age is Required'",
+                        min: {
+                          value: 1,
+                          message: "Minimum age must be 1",
+                        },
+                        max: {
+                          value: 120,
+                          message: "Maximum age must be 150",
+                        },
+                      })}
                       className={`loginInput`}
                     />
+                    {errors.Age && (
+                      <p className="text-red-500 my-2 text-sm">
+                        {" "}
+                        {errors.Age.message}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -75,8 +119,9 @@ const NeedySignup = () => {
                       Gender
                     </label>
                     <select
-                      name="gender"
-                      id="gender"
+                      {...register("Gender", {
+                        required: "Select Atleast 1 Feild",
+                      })}
                       className={`loginInput`}
                     >
                       <option value="">Select Gender</option>
@@ -84,6 +129,11 @@ const NeedySignup = () => {
                       <option value="female">Female</option>
                       <option value="other">Other</option>
                     </select>
+                    {errors.Gender && (
+                      <p className="text-red-500 my-2 text-sm">
+                        {errors.Gender.message}
+                      </p>
+                    )}
                   </div>
                 </div>
 
@@ -94,11 +144,16 @@ const NeedySignup = () => {
                     </label>
                     <input
                       type="email"
-                      name="email"
-                      id="email"
-                      placeholder="Enter your email"
+                      {...register("Email", {
+                        required: "'Email Required'",
+                      })}
                       className={`loginInput`}
                     />
+                    {errors.Email && (
+                      <p className="text-red-500 my-2 text-sm">
+                        {errors.Email.message}
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -107,60 +162,104 @@ const NeedySignup = () => {
                     </label>
                     <input
                       type="tel"
-                      name="tel"
-                      id="tel"
-                      placeholder="Enter your phone number"
+                      {...register("Contact", {
+                        required: "'Contact is required'",
+                      })}
                       className={`loginInput`}
                     />
+                    {errors.Contact && (
+                      <p className="text-red-500 my-2 text-sm">
+                        {errors.Contact.message}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="space-y-3 pt-2">
-                  <label className={`flex items-start gap-2 cursor-pointer text-sm `}>
+                  <label
+                    className={`flex items-start gap-2 cursor-pointer text-sm `}
+                  >
                     <input
                       type="checkbox"
-                      name="policy"
-                      id="policy"
+                      {...register("Policy", {
+                        required: "'Must agree wit Term and Policies'",
+                      })}
                       className="mt-1 w-4 h-4"
                     />
                     <span>
-                      I agree to the <NavLink to={"/policies"} ><span className="primeTxt hover:underline font-semibold">Terms of Service</span ></NavLink>  and
-                      <NavLink to={"/policies"} ><span className="primeTxt hover:underline font-semibold">Privacy Policy</span ></NavLink>
+                      I agree to the{" "}
+                      <NavLink to={"/policies"}>
+                        <span className="primeTxt hover:underline font-semibold">
+                          Terms of Service
+                        </span>
+                      </NavLink>{" "}
+                      and
+                      <NavLink to={"/policies"}>
+                        <span className="primeTxt hover:underline font-semibold">
+                          Privacy Policy
+                        </span>
+                      </NavLink>
                     </span>
                   </label>
-                  <label className={`flex items-start gap-2 cursor-pointer text-sm `}>
+                  {errors.Policy && (
+                    <p className="text-red-500 my-2 text-sm">
+                      {errors.Policy.message}
+                    </p>
+                  )}
+                  <label
+                    className={`flex items-start gap-2 cursor-pointer text-sm `}
+                  >
                     <input
                       type="checkbox"
-                      name="confirmation"
-                      id="confirmation"
+                      {...register("Confirmation", {
+                        required: "'Must Confrim Your Informations'",
+                      })}
                       className="mt-1 w-4 h-4"
                     />
-                    <span>I confirm that the information I've shared is honest and true.</span>
+
+                    <span>
+                      I confirm that the information I've shared is honest and
+                      true.
+                    </span>
                   </label>
+                  {errors.Confirmation && (
+                    <p className="text-red-500 my-2 text-sm">
+                      {" "}
+                      {errors.Confirmation.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="submitBtn pt-4">
-                  <NavLink to={"/create-post"}>
-                    <button
-                      type="submit"
-                      className="w-full primeBg cursor-pointer hover:scale-105 transition hover:translate-x-1 duration-300 text-white font-bold text-sm md:text-lg rounded-3xl p-3 md:p-4 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
-                    >
-                      Ask for Help
-                      <FaArrowRight />
-                    </button>
-                  </NavLink>
+                  <button
+                    type="submit"
+                    className="w-full primeBg cursor-pointer hover:scale-105 transition hover:translate-x-1 duration-300 text-white font-bold text-sm md:text-lg rounded-3xl p-3 md:p-4 flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                  >
+                    Ask for Help
+                    <FaArrowRight />
+                  </button>
                 </div>
               </form>
-
             </div>
             <div className="alreadyAccount text-center">
-              <p className="text-md py-2">Already part of our community ? <span className="primeTxt font-bold text-xl hover:border-b-2 border-rgb(26,104,91) transition-all duration-100 ease   "><NavLink to={"/needy-login"}>Sign in</NavLink></span> </p>
-              <p className="text-md font-bold text-red-700 hover:scale-105 transition-all duration-100 ease "> <NavLink to={"/forgot-password"}> Forgot your password?</NavLink> </p>
+              <p className="text-md py-2">
+                Already part of our community ?{" "}
+                <span className="primeTxt font-bold text-xl hover:border-b-2 border-rgb(26,104,91) transition-all duration-100 ease   ">
+                  <NavLink to={"/needy-login"}>Sign in</NavLink>
+                </span>{" "}
+              </p>
+              <p className="text-md font-bold text-red-700 hover:scale-105 transition-all duration-100 ease ">
+                {" "}
+                <NavLink to={"/forgot-password"}>
+                  {" "}
+                  Forgot your password?
+                </NavLink>{" "}
+              </p>
             </div>
           </div>
         </div>
-      </div >
-    </div >
-  )
+      </div>
+    </div>
+  );
 };
 
 export default NeedySignup;
