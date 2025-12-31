@@ -118,7 +118,7 @@ const CreatePost = () => {
                     })}
                     className=" border border-gray-200 rounded-2xl   text-gray-500 px-2 py-2 w-55"
                   >
-                    <option value="" disabled selected>
+                    <option disabled selected>
                       Select Help Type
                     </option>
                     {types.map((type, i) => (
